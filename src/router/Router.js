@@ -1,10 +1,11 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import { Home, About, Apartment, Error404 } from "./pages/index";
+import { Home, About, Apartment, Error404 } from "../pages";
+import Style from "./Router.module.scss";
 
-function App() {
+function Router() {
   return (
-    <div className="App">
+    <div className="Router">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/appartement/:id" element={<Apartment />} />
@@ -15,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default Router;

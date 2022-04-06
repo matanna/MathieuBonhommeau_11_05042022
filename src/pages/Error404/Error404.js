@@ -1,4 +1,5 @@
 import React from "react";
+import Style from "./Error404.module.scss";
 
 const Error404 = () => {
   return <div>Error404</div>;
