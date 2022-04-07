@@ -1,0 +1,17 @@
+/* Colors */
+$primary: #FF6060;
+$white: #FFFFFF;
+
+$bg-footer: #000000;
+
+/* Mixins */
+@mixin side-padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+@mixin center-in-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
