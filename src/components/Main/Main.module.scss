@@ -1,0 +1,7 @@
+@import '../../style/variables';
+
+.main {
+  @include side-padding;
+  margin-bottom: $marg-under-section;
+  min-height: 100vh;
+}

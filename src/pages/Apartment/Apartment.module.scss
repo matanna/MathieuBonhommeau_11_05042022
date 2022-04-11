@@ -1,0 +1,55 @@
+@import '../../style/variables';
+
+.apartmentHeader {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  .titleContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  .detailsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+
+    .hostProfil {
+      @include center-in-box;
+      gap: 1rem;
+
+      span {
+        max-width: 100px;
+        text-align: right;
+      }
+
+      img {
+        border-radius: 32px;
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.collapses {
+  display:flex;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  .collapseBox {
+    width: 45%;
+    height: 280px;
+  }
+}
+

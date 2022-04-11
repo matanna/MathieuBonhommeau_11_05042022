@@ -1,8 +1,6 @@
-import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home, About, Apartment, Error404 } from "../pages";
 import { Header, Footer } from "../components";
-import Style from "./Router.module.scss";
 
 function Router() {
   return (

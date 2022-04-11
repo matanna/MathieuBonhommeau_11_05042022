@@ -1,0 +1,25 @@
+@import '../../style/variables';
+
+.content {
+  @include center-in-box;
+  flex-direction: column;
+  padding-top: 50px;
+  gap: 50px;
+
+  .title {
+    font-size: 28.8rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 3.6rem;
+  }
+
+  .link {
+    color: $primary;
+  }
+}
+
+
+

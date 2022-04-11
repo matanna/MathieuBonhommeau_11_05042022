@@ -1,0 +1,15 @@
+@import '../../style/variables';
+
+.carousel {
+  width: 100%;
+  height: 415px;
+  border-radius: $big-radius;
+  margin-bottom: 30px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}

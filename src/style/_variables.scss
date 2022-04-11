@@ -1,8 +1,18 @@
 /* Colors */
 $primary: #FF6060;
+$secondary: #F6F6F6;
+$tertiary: #E3E3E3;
+
 $white: #FFFFFF;
 
 $bg-footer: #000000;
+
+/* Radius corner */
+$big-radius: 25px;
+$little-radius: 10px;
+
+/* Margin */
+$marg-under-section: 43px;
 
 /* Mixins */
 @mixin side-padding {
@@ -14,4 +24,14 @@ $bg-footer: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin layer {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
 }

@@ -1,0 +1,33 @@
+@import '../../style/variables';
+
+.card {
+  width: 340px;
+  height: 340px;
+  border-radius: $little-radius;
+  position: relative;
+
+  &::after {
+    @include layer;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.5));
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  .title {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    padding: 20px;
+    line-height: 1.5em;
+    font-size: 1.8rem;
+    color: $white;
+    font-weight: 500;
+  }
+}

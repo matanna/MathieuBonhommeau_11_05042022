@@ -1,10 +1,13 @@
-import * as React from "react";
 import Style from "./Banner.module.scss";
 
-const Banner = () => {
+const Banner = ({ children, image }) => {
+  console.log(image);
   return (
-    <section className={Style.banner}>
-      <h1>Chez Vous, partout et ailleurs</h1>
+    <section
+      className={Style.banner}
+      style={{ backgroundImage: `url(${image})` }}
+    >
+      {children}
     </section>
   );
 };

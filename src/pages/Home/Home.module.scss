@@ -1,5 +1,21 @@
 @import '../../style/variables';
 
-.main {
-  @include side-padding;
+.title {
+  font-size: 4.8rem;
+  font-weight: 500;
+  color: $white;
+  position: relative;
+  z-index: 1;
+  margin: 77px auto;
+}
+
+
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  grid-gap: 50px;
+  padding: 56px 50px;
+  border-radius: $big-radius;
+  background: $secondary;
 }

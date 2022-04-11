@@ -1,4 +1,3 @@
-import * as React from "react";
 import logoWhite from "../../assets/logo-white.png";
 import Style from "./Footer.module.scss";
 

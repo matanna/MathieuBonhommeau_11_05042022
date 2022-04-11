@@ -7,6 +7,22 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
+  font-size: 1.8rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 142.6%;
+}
+
+li {
+  line-height: 160%;
 }
 
 .App {
@@ -17,4 +33,9 @@ body {
     max-width: 1440px;
     margin: 0 auto;
   }
+}
+
+.loading {
+  height: 60vh;
+  @include center-in-box;
 }

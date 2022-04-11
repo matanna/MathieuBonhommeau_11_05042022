@@ -1,9 +1,7 @@
-import * as React from "react";
 import { NavLink } from "react-router-dom";
 import Style from "./Menu.module.scss";
 
 const Menu = () => {
-  console.log(NavLink);
   return (
     <nav className={Style.menu}>
       <ul>
