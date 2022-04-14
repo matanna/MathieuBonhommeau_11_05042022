@@ -16,7 +16,7 @@ const Apartment = () => {
       const fetchData = async () => {
         const response = await fetchApartment(id);
         // Create state with data and add a new properties for manage picture displayed in carousel
-        setApartment({ ...response, pictureInFront: 0 });
+        setApartment(response);
         setLoad(true);
       };
       fetchData().then();
@@ -60,8 +60,8 @@ const Apartment = () => {
             <div className={Style.collapseBox}>
               <Collapse title="Equipements">
                 <ul>
-                  {apartment.equipments.map((e) => (
-                    <li>{e}</li>
+                  {apartment.equipments.map((e, i) => (
+                    <li key={`apartment${apartment.id}-${e}${i}`}>{e}</li>
                   ))}
                 </ul>
               </Collapse>

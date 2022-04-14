@@ -3,13 +3,45 @@
 .carousel {
   width: 100%;
   height: 415px;
-  border-radius: $big-radius;
   margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
 
-  img {
-    width: 100%;
+  .imgsBox {
+    display: flex;
     height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
+
+    .imgBox {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: $big-radius;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+      }
+    }
   }
+
+  .arrow {
+    height: 80px;
+    position: absolute;
+    top: calc(50% - 80px/2);
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .arrowLeft {
+    left: 23px;
+  }
+
+  .arrowRight {
+    right: 23px;
+  }
+}
+
+.move {
+  transition: transform ease 0.3s;
 }
