@@ -7,7 +7,7 @@ const Carousel = ({ apartment, setApartment }) => {
   //const [isEnd, setIsEnd] = useState(false);
   //const [nav, setNav] = useState("");
   const [nav, setNav] = useState({
-    isEnd: false,
+    isEnd: true,
     direction: "",
   });
 
