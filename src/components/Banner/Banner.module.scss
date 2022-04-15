@@ -1,0 +1,30 @@
+@import '../../style/variables';
+
+.banner {
+  @include center-in-box;
+  background-size: cover;
+  height: 200px;
+  position: relative;
+  border-radius: $big-radius;
+  margin-bottom: $marg-under-section;
+
+  @media screen and (max-width: 576px) {
+    border-radius: $little-radius;
+    height: 110px;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-bottom: $marg-under-section-mobile;
+  }
+
+  &::after {
+    @include layer;
+    background-color: #000000;
+    opacity: 30%;
+  }
+}
+
+.bigInLittleScreen {
+  @media screen and (max-width: 768px) {
+    height: 223px;
+  }
+}

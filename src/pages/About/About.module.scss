@@ -1,0 +1,13 @@
+.collapses {
+  padding-left: 110px;
+  padding-right: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+
+  @media screen and (max-width: 1200px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

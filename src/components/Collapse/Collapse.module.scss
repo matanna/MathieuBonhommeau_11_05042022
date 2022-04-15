@@ -1,0 +1,61 @@
+@import '../../style/variables';
+
+.collapseBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-1*$little-radius);
+
+  .title {
+    background: $primary;
+    color: $white;
+    padding: 13px 20px;
+    border-radius: $little-radius;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    font-weight: 500;
+    transform: translateY($little-radius);
+
+    .down {
+      transform: rotate(540deg);
+      transition: transform ease-in 0.3s;
+    }
+
+    .up {
+      transform: rotate(0);
+      transition: transform ease-in 0.3s;
+    }
+  }
+
+  .contentBox {
+    height: 0;
+
+    .content {
+      padding: 45px 20px 13px 20px;
+      background: $secondary;
+      border-bottom-left-radius: $little-radius;
+      border-bottom-right-radius: $little-radius;
+      z-index: 0;
+      transform-origin: top center;
+      transform: scaleY(0);
+    }
+
+    .open {
+      position: relative;
+      transform: scaleY(1);
+      transition: transform ease-in-out 250ms;
+    }
+
+    .close {
+      transform: scaleY(0);
+      transition: transform ease-in-out 250ms;
+    }
+  }
+  .animate {
+    transition: height ease-in-out 250ms;
+  }
+}
+
+

@@ -1,0 +1,88 @@
+@import '../../style/variables';
+
+.apartmentHeader {
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .titleContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    line-height: 26px;
+
+    p {
+      font-weight: 500;
+    }
+
+    .tagsBox {
+      display: flex;
+
+      @media screen and (max-width: 768px) {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .detailsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: row-reverse;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .hostProfil {
+      @include center-in-box;
+      gap: 1rem;
+
+      @media screen and (max-width: 768px) {
+        gap: 2rem;
+      }
+
+      span {
+        max-width: 100px;
+        text-align: right;
+      }
+
+      img {
+        border-radius: 32px;
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.collapses {
+  display:flex;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  .collapseBox {
+    width: 45%;
+    height: 280px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  }
+}
+
