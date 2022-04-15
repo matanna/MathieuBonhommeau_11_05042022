@@ -11,6 +11,10 @@ const Home = () => {
   // State for display loading gif when wiating services datas
   let [load, setLoad] = useState(false);
 
+  useEffect(() => {
+    document.title = "Accueil";
+  }, []);
+
   // Call services with datas only when the component is render the first time
   useEffect(() => {
     try {

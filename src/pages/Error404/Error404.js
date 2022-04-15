@@ -1,8 +1,13 @@
 import Style from "./Error404.module.scss";
 import { Main } from "../../components";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Error404 = () => {
+  useEffect(() => {
+    document.title = `Erreur 404 !`;
+  }, []);
+
   return (
     <Main>
       <div className={Style.content}>

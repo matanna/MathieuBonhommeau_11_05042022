@@ -11,6 +11,10 @@ const Apartment = () => {
   const [apartment, setApartment] = useState({});
   const [load, setLoad] = useState(false);
 
+  useEffect(() => {
+    document.title = "Appartement";
+  }, []);
+
   // Call services for retrieve datas of apartment selected
   useEffect(() => {
     try {

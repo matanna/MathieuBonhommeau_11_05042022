@@ -1,8 +1,13 @@
 import Style from "./About.module.scss";
 import { Main, Banner, Collapse } from "../../components";
 import aboutBanner from "../../assets/aboutBanner.png";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "A propos²";
+  }, []);
+
   return (
     <Main>
       <Banner image={aboutBanner} styleClass="aboutBanner" />
