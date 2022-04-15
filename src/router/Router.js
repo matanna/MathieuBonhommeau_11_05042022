@@ -8,8 +8,8 @@ function Router() {
       <div className="app-container">
         <Header />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/appartement/:id" element={<Apartment />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/appartement/:id" element={<Apartment />} />
           <Route path="/a-propos" element={<About />} />
           <Route path="*" element={<Error404 />} />
         </Routes>

@@ -1,13 +1,12 @@
 import Style from "./Collapse.module.scss";
 import littleArrow from "../../assets/littleArrow.svg";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const Collapse = ({ title, children }) => {
   const [open, setOpen] = useState(false);
   const [height, setHeight] = useState(0);
 
   const paragraph = useRef(null);
-  console.log(height);
 
   const style = {
     height: `${height}px`,

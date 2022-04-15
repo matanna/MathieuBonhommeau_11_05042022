@@ -13,11 +13,17 @@ $little-radius: 10px;
 
 /* Margin */
 $marg-under-section: 43px;
+$marg-under-section-mobile: 22px;
 
 /* Mixins */
 @mixin side-padding {
   padding-left: 100px;
   padding-right: 100px;
+}
+
+@mixin side-padding-mobile {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 @mixin center-in-box {

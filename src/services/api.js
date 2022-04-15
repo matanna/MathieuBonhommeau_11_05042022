@@ -1,6 +1,6 @@
 import { datas } from "../datas/datas.js";
 
-// Fetch all apartments from api (only id, title and cover properties)
+// Fetch all apartments from services (only id, title and cover properties)
 export const fetchApartments = () => {
   return new Promise((resolve, reject) => {
     setTimeout(

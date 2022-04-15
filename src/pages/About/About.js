@@ -5,9 +5,9 @@ import aboutBanner from "../../assets/aboutBanner.png";
 const About = () => {
   return (
     <Main>
-      <Banner image={aboutBanner} />
+      <Banner image={aboutBanner} styleClass="aboutBanner" />
       <div className={Style.collapses}>
-        <Collapse title="Title">
+        <Collapse title="Fiabilité">
           <p>
             Les annonces postées sur Kasa garantissent une fiabilité totale. Les
             photos sont conformes aux logements, et toutes les informations sont

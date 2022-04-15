@@ -3,9 +3,14 @@
 .tag {
   border-radius: $little-radius;
   background: $primary;
-  padding: 3px 22px;
+  padding: 0 22px;
   font-size: 1.4rem;
   color: $white;
   min-width: 115px;
   margin-right: 1rem;
+
+  @media screen and (max-width: 576px) {
+    min-width: 50px;
+    margin-bottom: 1rem;
+  }
 }

@@ -6,9 +6,8 @@ export const Rating = ({ number, numberMax = 5, apartmentId }) => {
   for (let i = 0; i < numberMax; i++) {
     ratingTable.push(
       <svg
+        className={Style.star}
         key={`apartment${apartmentId}-${i}`}
-        width="30"
-        height="30"
         viewBox="0 0 30 30"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

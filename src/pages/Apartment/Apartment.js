@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import Style from "./Apartment.module.scss";
 import { Main, Carousel, Tag, Rating, Collapse } from "../../components";
 import { useParams } from "react-router-dom";
-import { fetchApartment } from "../../api/api";
+import { fetchApartment } from "../../services/api";
 import Loading from "../../assets/loading.gif";
+import { Error404 } from "../index";
 
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState({});
   const [load, setLoad] = useState(false);
 
-  // Call api for retrieve datas of apartment selected
+  // Call services for retrieve datas of apartment selected
   useEffect(() => {
     try {
       const fetchData = async () => {
@@ -25,7 +26,9 @@ const Apartment = () => {
     }
   }, [id]);
 
-  return (
+  return !apartment ? (
+    <Error404 />
+  ) : (
     <Main>
       {/* If load is false, display loader, else display cards */}
       {load ? (
@@ -37,7 +40,7 @@ const Apartment = () => {
                 <h1>{apartment.title}</h1>
                 <p>{apartment.location}</p>
               </div>
-              <div>
+              <div className={Style.tagsBox}>
                 {apartment.tags.map((e, i) => (
                   <Tag key={`apartment${apartment.id}-${e}`} tag={e} />
                 ))}

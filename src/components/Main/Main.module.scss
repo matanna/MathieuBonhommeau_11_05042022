@@ -4,4 +4,8 @@
   @include side-padding;
   margin-bottom: $marg-under-section;
   min-height: 100vh;
+
+  @media screen and (max-width: 1200px) {
+    @include side-padding-mobile;
+  }
 }

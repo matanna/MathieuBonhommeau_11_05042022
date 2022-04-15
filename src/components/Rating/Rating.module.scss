@@ -1,9 +1,19 @@
 @import '../../style/variables';
 
-.starGrey {
-  fill: $tertiary;
-}
+.star {
+  width: 30px;
+  height: 30px;
 
-.starRed {
-  fill: $primary;
+  @media screen and (max-width: 992px) {
+    width: 15px;
+    height: 15px;
+  }
+
+  .starGrey {
+    fill: $tertiary;
+  }
+
+  .starRed {
+    fill: $primary;
+  }
 }

@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { ApartmentCard, Main, Banner } from "../../components";
 import Style from "./Home.module.scss";
-import { fetchApartments } from "../../api/api";
+import { fetchApartments } from "../../services/api";
 import { Link } from "react-router-dom";
 import Loading from "../../assets/loading.gif";
 import homeBanner from "../../assets/homeBanner.png";
 
 const Home = () => {
   let [apartments, setApartments] = useState({});
-  // State for display loading gif when wiating api datas
+  // State for display loading gif when wiating services datas
   let [load, setLoad] = useState(false);
 
-  // Call api with datas only when the component is render the first time
+  // Call services with datas only when the component is render the first time
   useEffect(() => {
     try {
       const fetchDatas = async () => {

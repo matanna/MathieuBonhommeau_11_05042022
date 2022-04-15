@@ -5,9 +5,23 @@
   margin-bottom: 63px;
   padding: 40px 100px 0 100px;
 
+  @media screen and (max-width: 1200px) {
+    padding: 40px 20px 0 20px;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 20px 20px 0 20px;
+    margin-bottom: 20px;
+  }
+
   .logoContainer {
     width: 210px;
     height: 68px;
+
+    @media screen and (max-width: 576px) {
+      width: 40%;
+      height: auto;
+    }
 
     img {
       object-fit: cover;

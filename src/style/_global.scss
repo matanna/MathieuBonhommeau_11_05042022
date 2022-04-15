@@ -39,3 +39,15 @@ li {
   height: 60vh;
   @include center-in-box;
 }
+
+@media screen and (max-width: 992px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}
