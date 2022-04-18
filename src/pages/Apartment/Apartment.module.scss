@@ -16,6 +16,10 @@
     gap: 2rem;
     line-height: 26px;
 
+    @media screen and (max-width: 768px) {
+      gap: 1rem;
+    }
+
     p {
       font-weight: 500;
     }
@@ -40,6 +44,10 @@
       flex-direction: row-reverse;
       align-items: center;
       margin-top: 20px;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 10px;
+      }
     }
 
     .hostProfil {
@@ -47,12 +55,16 @@
       gap: 1rem;
 
       @media screen and (max-width: 768px) {
-        gap: 2rem;
+        gap: 1.5rem;
       }
 
       span {
         max-width: 100px;
         text-align: right;
+
+        @media screen and (max-width: 768px) {
+          font-size: 12px;
+        }
       }
 
       img {
@@ -60,6 +72,11 @@
         width: 64px;
         height: 64px;
         object-fit: cover;
+
+        @media screen and (max-width: 768px) {
+          width: 32px;
+          height: 32px;
+        }
       }
     }
   }
