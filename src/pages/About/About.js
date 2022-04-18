@@ -4,8 +4,9 @@ import aboutBanner from "../../assets/aboutBanner.png";
 import { useEffect } from "react";
 
 const About = () => {
+  // Adapt page title
   useEffect(() => {
-    document.title = "A propos²";
+    document.title = "A propos";
   }, []);
 
   return (

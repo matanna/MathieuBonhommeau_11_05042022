@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import Style from "./Apartment.module.scss";
 import { Main, Carousel, Tag, Rating, Collapse } from "../../components";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { fetchApartment } from "../../services/api";
 import Loading from "../../assets/loading.gif";
-import { Error404 } from "../index";
 
 const Apartment = () => {
   const { id } = useParams();
   const [apartment, setApartment] = useState({});
   const [load, setLoad] = useState(false);
 
+  // Adapt page title
   useEffect(() => {
     document.title = "Appartement";
   }, []);
@@ -31,7 +31,7 @@ const Apartment = () => {
   }, [id]);
 
   return !apartment ? (
-    <Error404 />
+    <Navigate to="/error" replace={true} />
   ) : (
     <Main>
       {/* If load is false, display loader, else display cards */}

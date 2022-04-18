@@ -11,6 +11,7 @@ const Home = () => {
   // State for display loading gif when wiating services datas
   let [load, setLoad] = useState(false);
 
+  // Adapt page title
   useEffect(() => {
     document.title = "Accueil";
   }, []);
