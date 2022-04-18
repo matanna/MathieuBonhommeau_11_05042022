@@ -1,4 +1,5 @@
 import Style from "./Rating.module.scss";
+import PropTypes from "prop-types";
 
 export const Rating = ({ number, numberMax = 5, apartmentId }) => {
   let ratingTable = [];
@@ -21,6 +22,16 @@ export const Rating = ({ number, numberMax = 5, apartmentId }) => {
   }
 
   return <div>{ratingTable}</div>;
+};
+
+Rating.defaultProps = {
+  numberMAx: 5,
+};
+
+Rating.propTypes = {
+  number: PropTypes.string.isRequired,
+  numberMax: PropTypes.number,
+  apartmentId: PropTypes.string.isRequired,
 };
 
 export default Rating;

@@ -1,4 +1,5 @@
 import Style from "./Banner.module.scss";
+import PropTypes from "prop-types";
 
 const Banner = ({ children, image, styleClass }) => {
   return (
@@ -15,6 +16,11 @@ const Banner = ({ children, image, styleClass }) => {
 
 Banner.defaultProps = {
   styleClass: null,
+};
+
+Banner.propTypes = {
+  image: PropTypes.string.isRequired,
+  styClass: PropTypes.string,
 };
 
 export default Banner;

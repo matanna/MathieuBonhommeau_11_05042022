@@ -1,6 +1,7 @@
 import Style from "./Collapse.module.scss";
 import littleArrow from "../../assets/littleArrow.svg";
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
 
 const Collapse = ({ title, children }) => {
   const [open, setOpen] = useState(false);
@@ -47,6 +48,10 @@ const Collapse = ({ title, children }) => {
       </div>
     </div>
   );
+};
+
+Collapse.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Collapse;
