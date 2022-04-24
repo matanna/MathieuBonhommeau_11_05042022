@@ -20,7 +20,7 @@ Banner.defaultProps = {
 
 Banner.propTypes = {
   image: PropTypes.string.isRequired,
-  styClass: PropTypes.string,
+  styleClass: PropTypes.string,
 };
 
 export default Banner;

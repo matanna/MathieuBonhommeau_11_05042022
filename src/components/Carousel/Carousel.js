@@ -8,6 +8,7 @@ const Carousel = ({ apartment }) => {
   const [nav, setNav] = useState({
     isEnd: true,
     direction: "",
+    inAnimation: false,
   });
 
   const [width, setWidth] = useState(0);
@@ -25,41 +26,51 @@ const Carousel = ({ apartment }) => {
   // For move diapo which is in front at the beginning or at the end without the user seeing it
   useEffect(() => {
     if (position === diapos.length - 1 && nav.direction === "right") {
+      setNav({ ...nav, inAnimation: true });
+      console.log(nav);
       let timer1 = setTimeout(() => {
         setPosition(0);
-        setNav({ ...nav, isEnd: true });
+        console.log(position, "ii");
+        setNav({ ...nav, isEnd: true, inAnimation: false });
       }, 300);
       return () => {
         clearTimeout(timer1);
       };
     }
     if (position === 0 && nav.direction === "left") {
+      setNav({ ...nav, inAnimation: true });
       let timer2 = setTimeout(() => {
         setPosition(diapos.length - 1);
-        setNav({ ...nav, isEnd: true });
+        setNav({ ...nav, isEnd: true, inAnimation: false });
       }, 300);
       return () => {
         clearTimeout(timer2);
       };
     }
-  }, [diapos.length, nav, position]);
+  }, [position]);
 
   // Handle click on next arrow
   const handleNext = () => {
-    setPosition(position + 1);
-    setNav({
-      isEnd: false,
-      direction: "right",
-    });
+    if (!nav.inAnimation) {
+      setPosition(position + 1);
+      setNav({
+        ...nav,
+        isEnd: false,
+        direction: "right",
+      });
+    }
   };
 
   // Handle click on prev arrow
   const handlePrev = () => {
-    setPosition(position - 1);
-    setNav({
-      isEnd: false,
-      direction: "left",
-    });
+    if (!nav.inAnimation) {
+      setPosition(position - 1);
+      setNav({
+        ...nav,
+        isEnd: false,
+        direction: "left",
+      });
+    }
   };
 
   return (
