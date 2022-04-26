@@ -24,7 +24,7 @@ const Home = () => {
         setApartments(response);
         setLoad(true);
       };
-      fetchDatas().then();
+      fetchDatas();
     } catch (err) {
       console.log(err);
     }

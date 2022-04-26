@@ -31,6 +31,16 @@
         object-fit: cover;
         border-radius: inherit;
       }
+
+      .count {
+        position: absolute;
+        color: $white;
+        bottom: 25px;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+      }
     }
   }
 

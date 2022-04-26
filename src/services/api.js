@@ -15,7 +15,7 @@ export const fetchApartments = () => {
             };
           })
         ),
-      1000
+      200
     );
   });
 };
@@ -30,7 +30,7 @@ export const fetchApartment = (id) => {
             return e.id === id;
           })
         ),
-      1000
+      200
     );
   });
 };

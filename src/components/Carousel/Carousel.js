@@ -6,15 +6,16 @@ const Carousel = ({ apartment }) => {
   const diapos = [...apartment.pictures, ...apartment.pictures.slice(0, 1)];
   const [position, setPosition] = useState(Math.floor(diapos.length / 2));
   const [nav, setNav] = useState({
-    isEnd: true,
+    isEnd: false,
+    isStart: false,
     direction: "",
-    inAnimation: false,
   });
+  const [inAnimation, setInAnimation] = useState(false);
 
   const [width, setWidth] = useState(0);
 
   let transform = {
-    transform: `translateX(-${position * width}px)`,
+    transform: `translateX(-${(position - 1) * width}px)`,
   };
 
   // Ref for retrieve the width of the carousel box
@@ -25,59 +26,104 @@ const Carousel = ({ apartment }) => {
 
   // For move diapo which is in front at the beginning or at the end without the user seeing it
   useEffect(() => {
-    if (position === diapos.length - 1 && nav.direction === "right") {
-      setNav({ ...nav, inAnimation: true });
-      console.log(nav);
-      let timer1 = setTimeout(() => {
-        setPosition(0);
-        console.log(position, "ii");
-        setNav({ ...nav, isEnd: true, inAnimation: false });
-      }, 300);
-      return () => {
-        clearTimeout(timer1);
-      };
-    }
-    if (position === 0 && nav.direction === "left") {
-      setNav({ ...nav, inAnimation: true });
-      let timer2 = setTimeout(() => {
-        setPosition(diapos.length - 1);
-        setNav({ ...nav, isEnd: true, inAnimation: false });
-      }, 300);
-      return () => {
-        clearTimeout(timer2);
-      };
-    }
-  }, [position]);
-
-  // Handle click on next arrow
-  const handleNext = () => {
-    if (!nav.inAnimation) {
-      setPosition(position + 1);
+    if (nav.isEnd && nav.direction === "right" && !inAnimation) {
+      setPosition(1);
       setNav({
-        ...nav,
         isEnd: false,
+        isStart: true,
         direction: "right",
       });
     }
+
+    if (position > diapos.length) {
+      setPosition(1);
+      setNav({
+        isEnd: false,
+        isStart: true,
+        direction: "right",
+      });
+      setTimeout(() => {
+        setPosition(2);
+        setNav({
+          isEnd: false,
+          isStart: false,
+          direction: "right",
+        });
+      }, 10);
+    }
+
+    if (position < 1) {
+      setPosition(diapos.length);
+      setNav({
+        isEnd: true,
+        isStart: false,
+        direction: "left",
+      });
+      setTimeout(() => {
+        setPosition(diapos.length - 1);
+        setNav({
+          isEnd: false,
+          isStart: false,
+          direction: "left",
+        });
+      }, 10);
+    }
+
+    if (nav.isStart && nav.direction === "left" && !inAnimation) {
+      setPosition(diapos.length);
+      setNav({
+        isEnd: true,
+        isStart: false,
+        direction: "left",
+      });
+    }
+  }, [nav]);
+
+  // Handle click on next arrow
+  const handleNext = () => {
+    setInAnimation(true);
+    setPosition(position + 1);
+    setNav({
+      isEnd: false,
+      isStart: false,
+      direction: "right",
+    });
+
+    setTimeout(() => {
+      setInAnimation(false);
+      setNav({
+        isEnd: position + 1 === diapos.length,
+        isStart: false,
+        direction: "right",
+      });
+    }, 300);
   };
 
   // Handle click on prev arrow
   const handlePrev = () => {
-    if (!nav.inAnimation) {
-      setPosition(position - 1);
+    setInAnimation(true);
+    setPosition(position - 1);
+    setNav({
+      isEnd: false,
+      isStart: false,
+      direction: "left",
+    });
+
+    setTimeout(() => {
+      setInAnimation(false);
       setNav({
-        ...nav,
         isEnd: false,
+        isStart: position === 2,
         direction: "left",
       });
-    }
+    }, 300);
   };
 
   return (
     <div className={Style.carousel} ref={diaposBox}>
       <span
         role="button"
-        onClick={() => handlePrev()}
+        onClick={() => (inAnimation ? null : handlePrev())}
         className={`${Style.arrow} ${Style.arrowLeft}`}
       >
         {apartment.pictures.length > 1 && (
@@ -96,13 +142,18 @@ const Carousel = ({ apartment }) => {
       {
         <div
           className={
-            nav.isEnd ? Style.imgsBox : `${Style.imgsBox} ${Style.move}`
+            nav.isEnd || nav.isStart
+              ? Style.imgsBox
+              : `${Style.imgsBox} ${Style.move}`
           }
           style={transform}
         >
           {diapos.map((e, i) => (
             <div className={Style.imgBox} key={`${apartment.id}-picture${i}`}>
               <img src={e} alt="Pièces de l'apartement" />
+              <div className={Style.count}>{`${i + 1 === 7 ? 1 : i + 1}/${
+                diapos.length - 1
+              }`}</div>
             </div>
           ))}
         </div>
@@ -110,7 +161,7 @@ const Carousel = ({ apartment }) => {
 
       <span
         role="button"
-        onClick={() => handleNext()}
+        onClick={() => (inAnimation ? null : handleNext())}
         className={`${Style.arrow} ${Style.arrowRight}`}
       >
         {apartment.pictures.length > 1 && (

@@ -24,7 +24,7 @@ const Apartment = () => {
         setApartment(response);
         setLoad(true);
       };
-      fetchData().then();
+      fetchData();
     } catch (err) {
       console.log(err);
     }
